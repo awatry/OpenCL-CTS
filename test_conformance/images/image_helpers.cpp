@@ -384,12 +384,14 @@ void get_max_sizes(size_t *numberOfSizes, const int maxNumberOfSizes,
   }
 }
 
+#ifndef issubnormal
 int issubnormal(float a) 
 {
     union { cl_int i; cl_float f; } u;
     u.f = a;
     return (u.i & 0x7f800000U) == 0;
 }
+#endif
 
 float get_max_absolute_error( cl_image_format *format, image_sampler_data *sampler) {
     if (sampler->filter_mode == CL_FILTER_NEAREST)
