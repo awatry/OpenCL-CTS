@@ -186,7 +186,7 @@ test_imagedim_pow2(cl_device_id device, cl_context context, cl_command_queue que
 			}
 			
             size_t origin[3] = {0,0,0};
-            size_t region[3] = {img_width, img_height, 1};
+            size_t region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
             err = clEnqueueWriteImage(queue, streams[0], CL_TRUE, origin, region, 0, 0, input_ptr, 0, NULL, NULL);
 			if (err != CL_SUCCESS)
 			{
@@ -423,7 +423,7 @@ test_imagedim_non_pow2(cl_device_id device, cl_context context, cl_command_queue
                 }
                 
                   size_t origin[3] = {0,0,0};
-                  size_t region[3] = {effective_img_width, effective_img_height, 1};
+                  size_t region[3] = {static_cast<size_t>(effective_img_width), static_cast<size_t>(effective_img_height), 1};
                   err = clEnqueueWriteImage(queue, streams[0], CL_TRUE, origin, region, 0, 0, input_ptr, 0, NULL, NULL);      
                 if (err != CL_SUCCESS)
                 {

@@ -13,6 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
+#include <limits>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -31,11 +32,11 @@ typedef struct
 
 device_info device_infos[] =
 {
-    {CL_DEVICE_TYPE_DEFAULT,     "CL_DEVICE_TYPE_DEFAULT",     -1, NULL},
-    {CL_DEVICE_TYPE_CPU,         "CL_DEVICE_TYPE_CPU",         -1, NULL},
-    {CL_DEVICE_TYPE_GPU,         "CL_DEVICE_TYPE_GPU",         -1, NULL},
-    {CL_DEVICE_TYPE_ACCELERATOR, "CL_DEVICE_TYPE_ACCELERATOR", -1, NULL},
-    {CL_DEVICE_TYPE_ALL,         "CL_DEVICE_TYPE_ALL",         -1, NULL},
+    {CL_DEVICE_TYPE_DEFAULT,     "CL_DEVICE_TYPE_DEFAULT",     std::numeric_limits<unsigned int>::max(), NULL},
+    {CL_DEVICE_TYPE_CPU,         "CL_DEVICE_TYPE_CPU",         std::numeric_limits<unsigned int>::max(), NULL},
+    {CL_DEVICE_TYPE_GPU,         "CL_DEVICE_TYPE_GPU",         std::numeric_limits<unsigned int>::max(), NULL},
+    {CL_DEVICE_TYPE_ACCELERATOR, "CL_DEVICE_TYPE_ACCELERATOR", std::numeric_limits<unsigned int>::max(), NULL},
+    {CL_DEVICE_TYPE_ALL,         "CL_DEVICE_TYPE_ALL",         std::numeric_limits<unsigned int>::max(), NULL},
 };
 
 // config types

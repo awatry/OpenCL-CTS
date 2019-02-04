@@ -172,7 +172,7 @@ test_multireadimagemultifmt(cl_device_id device, cl_context context, cl_command_
 	
     for (i=0; i<3; i++)
     {
-      size_t origin[3] = {0,0,0}, region[3]={img_width, img_height,1};
+      size_t origin[3] = {0,0,0}, region[3]={static_cast<size_t>(img_width), static_cast<size_t>(img_height),1};
       err = clEnqueueWriteImage(queue, streams[i], CL_TRUE, origin, region, 0, 0, input_ptr[i], 0, NULL, NULL);
         if (err != CL_SUCCESS)
         {

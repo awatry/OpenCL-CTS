@@ -55,14 +55,14 @@ const char *conditional_kernel_code =
 "}\n";
 
 const int results[] = {
-    0x12345678,
-    0x23456781,
-    0x34567812,
-    0x45678123,
-    0x56781234,
-    0x67812345,
-    0x78123456,
-    0x81234567,
+    static_cast<cl_int>(0x12345678),
+    static_cast<cl_int>(0x23456781),
+    static_cast<cl_int>(0x34567812),
+    static_cast<cl_int>(0x45678123),
+    static_cast<cl_int>(0x56781234),
+    static_cast<cl_int>(0x67812345),
+    static_cast<cl_int>(0x78123456),
+    static_cast<cl_int>(0x81234567),
 };
 
 int

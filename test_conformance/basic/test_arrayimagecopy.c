@@ -62,7 +62,7 @@ int test_arrayimagecopy_single_format(cl_device_id device, cl_context context, c
   }
   free_mtdata(d); d = NULL;
   
-  size_t origin[3]={0,0,0}, region[3]={img_width,img_height,1};
+  size_t origin[3]={0,0,0}, region[3]={static_cast<size_t>(img_width),static_cast<size_t>(img_height),1};
   err = clEnqueueWriteBuffer( queue, buffer, CL_TRUE, 0, buffer_size, bufptr, 0, NULL, NULL);
   test_error(err, "clEnqueueWriteBuffer failed");
   

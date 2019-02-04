@@ -187,7 +187,7 @@ test_image_multipass_integer_coord(cl_device_id device, cl_context context, cl_c
             return -1;
         }
         
-        size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+        size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
         err = clEnqueueWriteImage(queue, accum_streams[0], CL_TRUE,
                                   origin, region, 0, 0,
                                   initial_data, 0, NULL, NULL);
@@ -245,7 +245,7 @@ test_image_multipass_integer_coord(cl_device_id device, cl_context context, cl_c
                 return -1;
             }
             
-            size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+            size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
             err = clEnqueueWriteImage(queue, input_streams[i], CL_TRUE,
                                       origin, region, 0, 0,
                                       input_data[i], 0, NULL, NULL);
@@ -358,7 +358,7 @@ test_image_multipass_integer_coord(cl_device_id device, cl_context context, cl_c
                 return -1;
             }
             
-            size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+            size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
             err = clEnqueueReadImage(queue, accum_output, CL_TRUE,
                                      origin, region, 0, 0,
                                      (void *)output_ptr, 0, NULL, NULL);
@@ -438,7 +438,7 @@ test_image_multipass_float_coord(cl_device_id device, cl_context context, cl_com
             return -1;
         }
         
-        size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+        size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
         err = clEnqueueWriteImage(queue, accum_streams[0], CL_TRUE,
                                   origin, region, 0, 0,
                                   initial_data, 0, NULL, NULL);
@@ -489,7 +489,7 @@ test_image_multipass_float_coord(cl_device_id device, cl_context context, cl_com
                 return -1;
             }
             
-            size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+            size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
             err = clEnqueueWriteImage(queue, input_streams[i], CL_TRUE,
                                       origin, region, 0, 0,
                                       input_data[i], 0, NULL, NULL);
@@ -599,7 +599,7 @@ test_image_multipass_float_coord(cl_device_id device, cl_context context, cl_com
                 return -1;
             }
             
-            size_t origin[3] = {0, 0, 0}, region[3] = {img_width, img_height, 1};
+            size_t origin[3] = {0, 0, 0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
             err = clEnqueueReadImage(queue, accum_output, CL_TRUE,
                                      origin, region, 0, 0,
                                      (void *)output_ptr, 0, NULL, NULL);

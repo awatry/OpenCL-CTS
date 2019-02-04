@@ -119,7 +119,7 @@ int test_readimage(cl_device_id device, cl_context context, cl_command_queue que
 	int img_height = 512;
 	int i, err;
     size_t origin[3] = {0, 0, 0};
-    size_t region[3] = {img_width, img_height, 1};
+    size_t region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
     size_t length = img_width * img_height * 4 * sizeof(unsigned char);
     MTdata d;
 	

@@ -67,7 +67,7 @@ int test_kernel_call_kernel_function(cl_device_id deviceID, cl_context context, 
     clKernelWrapper kernel1, kernel2, kernel_to_call;
     clMemWrapper	streams[2];
     
-    size_t	threads[] = {num_elements,1,1};
+    size_t	threads[] = {static_cast<size_t>(num_elements),1,1};
     cl_int *input, *output, *expected;
     cl_int times = 4;
     int pass = 0;

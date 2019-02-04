@@ -179,7 +179,7 @@ test_imagecopy(cl_device_id device, cl_context context, cl_command_queue queue, 
 				break;
 		}
 		
-        size_t origin[3] = {0,0,0}, region[3] = {img_width, img_height, 1};
+        size_t origin[3] = {0,0,0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
         err = clEnqueueWriteImage(queue, streams[i*2], CL_TRUE, origin, region, 0, 0, p, 0, NULL, NULL);
         test_error(err, "create_image_2d failed");
         
@@ -189,7 +189,7 @@ test_imagecopy(cl_device_id device, cl_context context, cl_command_queue queue, 
 			for (x=0; x<img_width; x+=delta_w)
 			{
         copy_number++;
-        size_t copy_origin[3] = {x,y,0}, copy_region[3]={delta_w, delta_h, 1};
+        size_t copy_origin[3] = {static_cast<size_t>(x),static_cast<size_t>(y),0}, copy_region[3]={static_cast<size_t>(delta_w), static_cast<size_t>(delta_h), 1};
         err = clEnqueueCopyImage(queue, streams[i*2], streams[i*2+1], 
                                  copy_origin, copy_origin, copy_region,
                                  0, NULL, NULL);

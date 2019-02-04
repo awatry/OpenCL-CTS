@@ -190,7 +190,7 @@ test_imagerandomcopy(cl_device_id device, cl_context context, cl_command_queue q
 				break;
 		}
 		
-        size_t origin[3]={0,0,0}, region[3]={img_width, img_height,1};
+        size_t origin[3]={0,0,0}, region[3]={static_cast<size_t>(img_width), static_cast<size_t>(img_height),1};
         err = clEnqueueWriteImage(queue, streams[i*2], CL_TRUE, origin, region, 0, 0, p, 0, NULL, NULL);
 //		err = clWriteImage(context, streams[i*2], false, 0, 0, 0, img_width, img_height, 0, NULL, 0, 0, p, NULL);
         test_error(err, "clEnqueueWriteImage failed");

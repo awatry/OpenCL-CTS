@@ -242,7 +242,7 @@ test_imagereadwrite(cl_device_id device, cl_context context, cl_command_queue qu
 			p = (void *)rgba16_inptr;
 		else
 			p = (void *)rgbafp_inptr;
-        size_t origin[3] = {0,0,0}, region[3] = {img_width, img_height, 1};
+        size_t origin[3] = {0,0,0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
 		err = clEnqueueWriteImage(queue, streams[i], CL_TRUE, 
                               origin, region, 0, 0, 
                               p, 0, NULL, NULL);
@@ -340,7 +340,7 @@ test_imagereadwrite(cl_device_id device, cl_context context, cl_command_queue qu
 			input_pitch = img_width*elem_size;
 		}
     
-        size_t origin[3] = {x,y,0}, region[3] = {w, h, 1};
+        size_t origin[3] = {static_cast<size_t>(x),static_cast<size_t>(y),0}, region[3] = {static_cast<size_t>(w), static_cast<size_t>(h), 1};
         err = clEnqueueWriteImage(queue, streams[j], CL_TRUE,
                               origin, region, input_pitch, 0, p,
                               0, NULL, NULL);

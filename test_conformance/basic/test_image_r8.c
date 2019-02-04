@@ -116,7 +116,7 @@ test_image_r8(cl_device_id device, cl_context context, cl_command_queue queue, i
 		return -1;
 	}
 	
-    size_t origin[3] = {0,0,0}, region[3]={img_width, img_height, 1};
+    size_t origin[3] = {0,0,0}, region[3]={static_cast<size_t>(img_width), static_cast<size_t>(img_height), 1};
     err = clEnqueueWriteImage(queue, streams[0], CL_TRUE,
                             origin, region, 0, 0,
                             input_ptr,

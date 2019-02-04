@@ -253,7 +253,7 @@ test_imagereadwrite3d(cl_device_id device, cl_context context, cl_command_queue 
 		else
 			p = (void *)rgbafp_inptr;
 		
-        size_t origin[3] = {0,0,0}, region[3] = {img_width, img_height, img_depth};
+        size_t origin[3] = {0,0,0}, region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), static_cast<size_t>(img_depth)};
         err = clEnqueueWriteImage(queue, streams[i], CL_TRUE,
                                   origin, region, 0, 0, 
                                   p, 
@@ -352,7 +352,7 @@ test_imagereadwrite3d(cl_device_id device, cl_context context, cl_command_queue 
 			input_slice_pitch = input_pitch*img_height;
 		}
     
-    size_t origin[3] = {x,y,z}, region[3] = {w, h, d};
+    size_t origin[3] = {static_cast<size_t>(x),static_cast<size_t>(y),static_cast<size_t>(z)}, region[3] = {static_cast<size_t>(w), static_cast<size_t>(h), static_cast<size_t>(d)};
 		err = clEnqueueWriteImage(queue, streams[j], CL_TRUE,
                               origin, region, input_pitch, input_slice_pitch,
                               p, 0, NULL, NULL);

@@ -129,7 +129,7 @@ int test_readimage3d(cl_device_id device, cl_context context, cl_command_queue q
 	int img_depth = 64;
 	int i, err;
     size_t origin[3] = {0, 0, 0};
-    size_t region[3] = {img_width, img_height, img_depth};
+    size_t region[3] = {static_cast<size_t>(img_width), static_cast<size_t>(img_height), static_cast<size_t>(img_depth)};
     size_t length = img_width * img_height * img_depth * 4 * sizeof(float);
 	
     
