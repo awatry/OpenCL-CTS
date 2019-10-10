@@ -25,7 +25,7 @@
 // For global, local, and constant
 const char *parameter_kernel_long = 
 "%s\n" // optional pragma
-"kernel void test(global ulong *results, %s %s *mem0, %s %s2 *mem2, %s %s2 *mem3, %s %s4 *mem4, %s %s8 *mem8, %s %s16 *mem16)\n"
+"kernel void test(global ulong *results, %s %s *mem0, %s %s2 *mem2, %s %s3 *mem3, %s %s4 *mem4, %s %s8 *mem8, %s %s16 *mem16)\n"
 "{\n"
 "   results[0] = (ulong)&mem0[0];\n"
 "   results[1] = (ulong)&mem2[0];\n"
@@ -78,7 +78,7 @@ const char *constant_kernel_long =
 // For global, local, and constant
 const char *parameter_kernel_no_long = 
 "%s\n" // optional pragma
-"kernel void test(global uint *results, %s %s *mem0, %s %s2 *mem2, %s %s2 *mem3, %s %s4 *mem4, %s %s8 *mem8, %s %s16 *mem16)\n"
+"kernel void test(global uint *results, %s %s *mem0, %s %s2 *mem2, %s %s3 *mem3, %s %s4 *mem4, %s %s8 *mem8, %s %s16 *mem16)\n"
 "{\n"
 "   results[0] = (uint)&mem0[0];\n"
 "   results[1] = (uint)&mem2[0];\n"
